@@ -1,6 +1,6 @@
-var json_ccesites_9 = {
+var json_CUCEsites_15 = {
 "type": "FeatureCollection",
-"name": "ccesites_9",
+"name": "CUCEsites_15",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "Site name": "TCAH Far Rock", "Address": "386 Beach 45th Street  NYC NY", "Zipcode": 11691.0, "programs h": "UF 1" }, "geometry": { "type": "Point", "coordinates": [ -73.7765478, 40.595563 ] } },

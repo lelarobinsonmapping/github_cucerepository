@@ -36,11 +36,17 @@
         <script src="data/Boroughs_6.js"></script>
         <script src="data/HOLCredlining_7.js"></script>
         <script src="data/SubwayLines_8.js"></script>
-        <script src="data/ccesites_9.js"></script>
+        <script src="data/UrbanFarming_9.js"></script>
+        <script src="data/Parenting_10.js"></script>
+        <script src="data/NutritionandHealth_11.js"></script>
+        <script src="data/HASTEP_12.js"></script>
+        <script src="data/FMNP_13.js"></script>
+        <script src="data/4HandFYD_14.js"></script>
+        <script src="data/CUCEsites_15.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[40.676221537449166,-74.16661277399746],[40.803353725386756,-73.76361090143466]]);
+        }).fitBounds([[40.69704766857888,-74.0382794032559],[40.76418274371971,-73.82549441454258]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -302,7 +308,7 @@
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 2.0,
+                weight: 1.0,
                 fillOpacity: 0,
                 interactive: true,
             }
@@ -829,7 +835,343 @@
         });
         bounds_group.addLayer(layer_SubwayLines_8);
         map.addLayer(layer_SubwayLines_8);
-        function pop_ccesites_9(feature, layer) {
+        function pop_UrbanFarming_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sitename'] !== null ? autolinker.link(feature.properties['sitename'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['address'] !== null ? autolinker.link(feature.properties['address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['zipcode'] !== null ? autolinker.link(feature.properties['zipcode'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UrbanFarming_9_0() {
+            return {
+                pane: 'pane_UrbanFarming_9',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UrbanFarming_9');
+        map.getPane('pane_UrbanFarming_9').style.zIndex = 409;
+        map.getPane('pane_UrbanFarming_9').style['mix-blend-mode'] = 'normal';
+        var layer_UrbanFarming_9 = new L.geoJson(json_UrbanFarming_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UrbanFarming_9',
+            layerName: 'layer_UrbanFarming_9',
+            pane: 'pane_UrbanFarming_9',
+            onEachFeature: pop_UrbanFarming_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_UrbanFarming_9_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_UrbanFarming_9);
+        function pop_Parenting_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['program'] !== null ? autolinker.link(feature.properties['program'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['audience'] !== null ? autolinker.link(feature.properties['audience'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sitename'] !== null ? autolinker.link(feature.properties['sitename'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['address'] !== null ? autolinker.link(feature.properties['address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Latitude'] !== null ? autolinker.link(feature.properties['Latitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Longitude'] !== null ? autolinker.link(feature.properties['Longitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Parenting_10_0() {
+            return {
+                pane: 'pane_Parenting_10',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Parenting_10');
+        map.getPane('pane_Parenting_10').style.zIndex = 410;
+        map.getPane('pane_Parenting_10').style['mix-blend-mode'] = 'normal';
+        var layer_Parenting_10 = new L.geoJson(json_Parenting_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Parenting_10',
+            layerName: 'layer_Parenting_10',
+            pane: 'pane_Parenting_10',
+            onEachFeature: pop_Parenting_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Parenting_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Parenting_10);
+        function pop_NutritionandHealth_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sitename'] !== null ? autolinker.link(feature.properties['sitename'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['address'] !== null ? autolinker.link(feature.properties['address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['zipcode'] !== null ? autolinker.link(feature.properties['zipcode'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NutritionandHealth_11_0() {
+            return {
+                pane: 'pane_NutritionandHealth_11',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_NutritionandHealth_11');
+        map.getPane('pane_NutritionandHealth_11').style.zIndex = 411;
+        map.getPane('pane_NutritionandHealth_11').style['mix-blend-mode'] = 'normal';
+        var layer_NutritionandHealth_11 = new L.geoJson(json_NutritionandHealth_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NutritionandHealth_11',
+            layerName: 'layer_NutritionandHealth_11',
+            pane: 'pane_NutritionandHealth_11',
+            onEachFeature: pop_NutritionandHealth_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_NutritionandHealth_11_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_NutritionandHealth_11);
+        function pop_HASTEP_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sitename'] !== null ? autolinker.link(feature.properties['sitename'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['address'] !== null ? autolinker.link(feature.properties['address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_HASTEP_12_0() {
+            return {
+                pane: 'pane_HASTEP_12',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_HASTEP_12');
+        map.getPane('pane_HASTEP_12').style.zIndex = 412;
+        map.getPane('pane_HASTEP_12').style['mix-blend-mode'] = 'normal';
+        var layer_HASTEP_12 = new L.geoJson(json_HASTEP_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_HASTEP_12',
+            layerName: 'layer_HASTEP_12',
+            pane: 'pane_HASTEP_12',
+            onEachFeature: pop_HASTEP_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_HASTEP_12_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_HASTEP_12);
+        function pop_FMNP_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sitename'] !== null ? autolinker.link(feature.properties['sitename'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['address'] !== null ? autolinker.link(feature.properties['address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_FMNP_13_0() {
+            return {
+                pane: 'pane_FMNP_13',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,155,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_FMNP_13');
+        map.getPane('pane_FMNP_13').style.zIndex = 413;
+        map.getPane('pane_FMNP_13').style['mix-blend-mode'] = 'normal';
+        var layer_FMNP_13 = new L.geoJson(json_FMNP_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FMNP_13',
+            layerName: 'layer_FMNP_13',
+            pane: 'pane_FMNP_13',
+            onEachFeature: pop_FMNP_13,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_FMNP_13_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_FMNP_13);
+        function pop_4HandFYD_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sitename'] !== null ? autolinker.link(feature.properties['sitename'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['address'] !== null ? autolinker.link(feature.properties['address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['zipcode'] !== null ? autolinker.link(feature.properties['zipcode'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_4HandFYD_14_0() {
+            return {
+                pane: 'pane_4HandFYD_14',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,180,60,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_4HandFYD_14');
+        map.getPane('pane_4HandFYD_14').style.zIndex = 414;
+        map.getPane('pane_4HandFYD_14').style['mix-blend-mode'] = 'normal';
+        var layer_4HandFYD_14 = new L.geoJson(json_4HandFYD_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_4HandFYD_14',
+            layerName: 'layer_4HandFYD_14',
+            pane: 'pane_4HandFYD_14',
+            onEachFeature: pop_4HandFYD_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_4HandFYD_14_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_4HandFYD_14);
+        function pop_CUCEsites_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Site name'] !== null ? autolinker.link(feature.properties['Site name'].toLocaleString()) : '') + '</td>\
@@ -847,9 +1189,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ccesites_9_0() {
+        function style_CUCEsites_15_0() {
             return {
-                pane: 'pane_ccesites_9',
+                pane: 'pane_CUCEsites_15',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(50,87,128,1.0)',
@@ -863,26 +1205,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ccesites_9');
-        map.getPane('pane_ccesites_9').style.zIndex = 409;
-        map.getPane('pane_ccesites_9').style['mix-blend-mode'] = 'normal';
-        var layer_ccesites_9 = new L.geoJson(json_ccesites_9, {
+        map.createPane('pane_CUCEsites_15');
+        map.getPane('pane_CUCEsites_15').style.zIndex = 415;
+        map.getPane('pane_CUCEsites_15').style['mix-blend-mode'] = 'normal';
+        var layer_CUCEsites_15 = new L.geoJson(json_CUCEsites_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ccesites_9',
-            layerName: 'layer_ccesites_9',
-            pane: 'pane_ccesites_9',
-            onEachFeature: pop_ccesites_9,
+            dataVar: 'json_CUCEsites_15',
+            layerName: 'layer_CUCEsites_15',
+            pane: 'pane_CUCEsites_15',
+            onEachFeature: pop_CUCEsites_15,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ccesites_9_0(feature));
+                return L.circleMarker(latlng, style_CUCEsites_15_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ccesites_9);
-        map.addLayer(layer_ccesites_9);
+        bounds_group.addLayer(layer_CUCEsites_15);
+        map.addLayer(layer_CUCEsites_15);
         setBounds();
         </script>
     </body>
