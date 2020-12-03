@@ -1,6 +1,6 @@
-var json_UrbanFarming_9 = {
+var json_UrbanFarming_13 = {
 "type": "FeatureCollection",
-"name": "UrbanFarming_9",
+"name": "UrbanFarming_13",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "activity": "Educational\/Community Farm", "sitename": "Edgemere", "address": "385 Beach 45th Street  NYC NY", "zipcode": 11691.0 }, "geometry": { "type": "Point", "coordinates": [ -73.7769241, 40.5952475 ] } },

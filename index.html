@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
         #map {
-            width: 1066px;
+            width: 853px;
             height: 445px;
         }
         </style>
@@ -34,19 +34,23 @@
         <script src="data/CommunityDistricts_4.js"></script>
         <script src="data/CityCouncilDistrics_5.js"></script>
         <script src="data/Boroughs_6.js"></script>
-        <script src="data/HOLCredlining_7.js"></script>
-        <script src="data/SubwayLines_8.js"></script>
-        <script src="data/UrbanFarming_9.js"></script>
-        <script src="data/Parenting_10.js"></script>
-        <script src="data/NutritionandHealth_11.js"></script>
-        <script src="data/HASTEP_12.js"></script>
-        <script src="data/FMNP_13.js"></script>
-        <script src="data/4HandFYD_14.js"></script>
-        <script src="data/CUCEsites_15.js"></script>
+        <script src="data/NYStatenIsland1940_7.js"></script>
+        <script src="data/NYQueens1938_8.js"></script>
+        <script src="data/NYManhattan1937_9.js"></script>
+        <script src="data/NYBrooklyn1938_10.js"></script>
+        <script src="data/NYBronx1938_11.js"></script>
+        <script src="data/SubwayLines_12.js"></script>
+        <script src="data/UrbanFarming_13.js"></script>
+        <script src="data/Parenting_14.js"></script>
+        <script src="data/NutritionandHealth_15.js"></script>
+        <script src="data/HASTEP_16.js"></script>
+        <script src="data/FMNP_17.js"></script>
+        <script src="data/4HandFYD_18.js"></script>
+        <script src="data/CUCEsites_19.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[40.66667826606326,-74.09775020778466],[40.800941912064594,-73.6721802303584]]);
+        }).fitBounds([[40.681859349206356,-74.06547101655043],[40.76924594219473,-73.84396208078671]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -102,7 +106,7 @@
             style: style_StateSenateDistricts_1_0,
         });
         bounds_group.addLayer(layer_StateSenateDistricts_1);
-
+        map.addLayer(layer_StateSenateDistricts_1);
         function pop_StateAssemblyDistricts_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -138,6 +142,7 @@
             style: style_StateAssemblyDistricts_2_0,
         });
         bounds_group.addLayer(layer_StateAssemblyDistricts_2);
+        map.addLayer(layer_StateAssemblyDistricts_2);
         function pop_CongressionalDistricts_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -173,6 +178,7 @@
             style: style_CongressionalDistricts_3_0,
         });
         bounds_group.addLayer(layer_CongressionalDistricts_3);
+        map.addLayer(layer_CongressionalDistricts_3);
         function pop_CommunityDistricts_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -208,6 +214,7 @@
             style: style_CommunityDistricts_4_0,
         });
         bounds_group.addLayer(layer_CommunityDistricts_4);
+        map.addLayer(layer_CommunityDistricts_4);
         function pop_CityCouncilDistrics_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -243,6 +250,7 @@
             style: style_CityCouncilDistrics_5_0,
         });
         bounds_group.addLayer(layer_CityCouncilDistrics_5);
+        map.addLayer(layer_CityCouncilDistrics_5);
         function pop_Boroughs_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -278,14 +286,9 @@
             style: style_Boroughs_6_0,
         });
         bounds_group.addLayer(layer_Boroughs_6);
-        function pop_HOLCredlining_7(feature, layer) {
+        map.addLayer(layer_Boroughs_6);
+        function pop_NYStatenIsland1940_7(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['state'] !== null ? autolinker.link(feature.properties['state'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['city'] !== null ? autolinker.link(feature.properties['city'].toLocaleString()) : '') + '</td>\
-                    </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -296,40 +299,565 @@
                         <td colspan="2">' + (feature.properties['holc_grade'] !== null ? autolinker.link(feature.properties['holc_grade'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['area_descr'] !== null ? autolinker.link(feature.properties['area_descr'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['area_description_data'] !== null ? autolinker.link(feature.properties['area_description_data'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_HOLCredlining_7_0() {
-            return {
-                pane: 'pane_HOLCredlining_7',
+        function style_NYStatenIsland1940_7_0(feature) {
+            switch(String(feature.properties['holc_grade'])) {
+                case 'A':
+                    return {
+                pane: 'pane_NYStatenIsland1940_7',
                 opacity: 1,
-                color: 'rgba(183,72,75,1.0)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
                 interactive: true,
             }
+                    break;
+                case 'B':
+                    return {
+                pane: 'pane_NYStatenIsland1940_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,82,162,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'C':
+                    return {
+                pane: 'pane_NYStatenIsland1940_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,213,92,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'D':
+                    return {
+                pane: 'pane_NYStatenIsland1940_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_NYStatenIsland1940_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(53,174,207,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
         }
-        map.createPane('pane_HOLCredlining_7');
-        map.getPane('pane_HOLCredlining_7').style.zIndex = 407;
-        map.getPane('pane_HOLCredlining_7').style['mix-blend-mode'] = 'normal';
-        var layer_HOLCredlining_7 = new L.geoJson(json_HOLCredlining_7, {
+        map.createPane('pane_NYStatenIsland1940_7');
+        map.getPane('pane_NYStatenIsland1940_7').style.zIndex = 407;
+        map.getPane('pane_NYStatenIsland1940_7').style['mix-blend-mode'] = 'normal';
+        var layer_NYStatenIsland1940_7 = new L.geoJson(json_NYStatenIsland1940_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_HOLCredlining_7',
-            layerName: 'layer_HOLCredlining_7',
-            pane: 'pane_HOLCredlining_7',
-            onEachFeature: pop_HOLCredlining_7,
-            style: style_HOLCredlining_7_0,
+            dataVar: 'json_NYStatenIsland1940_7',
+            layerName: 'layer_NYStatenIsland1940_7',
+            pane: 'pane_NYStatenIsland1940_7',
+            onEachFeature: pop_NYStatenIsland1940_7,
+            style: style_NYStatenIsland1940_7_0,
         });
-        bounds_group.addLayer(layer_HOLCredlining_7);
-        map.addLayer(layer_HOLCredlining_7);
-        function pop_SubwayLines_8(feature, layer) {
+        bounds_group.addLayer(layer_NYStatenIsland1940_7);
+        map.addLayer(layer_NYStatenIsland1940_7);
+        function pop_NYQueens1938_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['holc_id'] !== null ? autolinker.link(feature.properties['holc_id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['holc_grade'] !== null ? autolinker.link(feature.properties['holc_grade'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['area_description_data'] !== null ? autolinker.link(feature.properties['area_description_data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NYQueens1938_8_0(feature) {
+            switch(String(feature.properties['holc_grade'])) {
+                case 'A':
+                    return {
+                pane: 'pane_NYQueens1938_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'B':
+                    return {
+                pane: 'pane_NYQueens1938_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,82,162,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'C':
+                    return {
+                pane: 'pane_NYQueens1938_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,213,92,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'D':
+                    return {
+                pane: 'pane_NYQueens1938_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_NYQueens1938_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(153,71,235,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_NYQueens1938_8');
+        map.getPane('pane_NYQueens1938_8').style.zIndex = 408;
+        map.getPane('pane_NYQueens1938_8').style['mix-blend-mode'] = 'normal';
+        var layer_NYQueens1938_8 = new L.geoJson(json_NYQueens1938_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NYQueens1938_8',
+            layerName: 'layer_NYQueens1938_8',
+            pane: 'pane_NYQueens1938_8',
+            onEachFeature: pop_NYQueens1938_8,
+            style: style_NYQueens1938_8_0,
+        });
+        bounds_group.addLayer(layer_NYQueens1938_8);
+        map.addLayer(layer_NYQueens1938_8);
+        function pop_NYManhattan1937_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['holc_id'] !== null ? autolinker.link(feature.properties['holc_id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['holc_grade'] !== null ? autolinker.link(feature.properties['holc_grade'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['area_description_data'] !== null ? autolinker.link(feature.properties['area_description_data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NYManhattan1937_9_0(feature) {
+            switch(String(feature.properties['holc_grade'])) {
+                case 'A':
+                    return {
+                pane: 'pane_NYManhattan1937_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'B':
+                    return {
+                pane: 'pane_NYManhattan1937_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,82,162,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'C':
+                    return {
+                pane: 'pane_NYManhattan1937_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,213,92,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'D':
+                    return {
+                pane: 'pane_NYManhattan1937_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_NYManhattan1937_9',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(95,229,111,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_NYManhattan1937_9');
+        map.getPane('pane_NYManhattan1937_9').style.zIndex = 409;
+        map.getPane('pane_NYManhattan1937_9').style['mix-blend-mode'] = 'normal';
+        var layer_NYManhattan1937_9 = new L.geoJson(json_NYManhattan1937_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NYManhattan1937_9',
+            layerName: 'layer_NYManhattan1937_9',
+            pane: 'pane_NYManhattan1937_9',
+            onEachFeature: pop_NYManhattan1937_9,
+            style: style_NYManhattan1937_9_0,
+        });
+        bounds_group.addLayer(layer_NYManhattan1937_9);
+        map.addLayer(layer_NYManhattan1937_9);
+        function pop_NYBrooklyn1938_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['holc_id'] !== null ? autolinker.link(feature.properties['holc_id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['holc_grade'] !== null ? autolinker.link(feature.properties['holc_grade'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['area_description_data'] !== null ? autolinker.link(feature.properties['area_description_data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NYBrooklyn1938_10_0(feature) {
+            switch(String(feature.properties['holc_grade'])) {
+                case 'A':
+                    return {
+                pane: 'pane_NYBrooklyn1938_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'B':
+                    return {
+                pane: 'pane_NYBrooklyn1938_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(55,90,231,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'C':
+                    return {
+                pane: 'pane_NYBrooklyn1938_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,213,92,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'D':
+                    return {
+                pane: 'pane_NYBrooklyn1938_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_NYBrooklyn1938_10',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(186,240,109,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_NYBrooklyn1938_10');
+        map.getPane('pane_NYBrooklyn1938_10').style.zIndex = 410;
+        map.getPane('pane_NYBrooklyn1938_10').style['mix-blend-mode'] = 'normal';
+        var layer_NYBrooklyn1938_10 = new L.geoJson(json_NYBrooklyn1938_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NYBrooklyn1938_10',
+            layerName: 'layer_NYBrooklyn1938_10',
+            pane: 'pane_NYBrooklyn1938_10',
+            onEachFeature: pop_NYBrooklyn1938_10,
+            style: style_NYBrooklyn1938_10_0,
+        });
+        bounds_group.addLayer(layer_NYBrooklyn1938_10);
+        map.addLayer(layer_NYBrooklyn1938_10);
+        function pop_NYBronx1938_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['holc_id'] !== null ? autolinker.link(feature.properties['holc_id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['holc_grade'] !== null ? autolinker.link(feature.properties['holc_grade'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['area_description_data'] !== null ? autolinker.link(feature.properties['area_description_data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NYBronx1938_11_0(feature) {
+            switch(String(feature.properties['holc_grade'])) {
+                case 'A':
+                    return {
+                pane: 'pane_NYBronx1938_11',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(87,201,37,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'B':
+                    return {
+                pane: 'pane_NYBronx1938_11',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,82,162,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'C':
+                    return {
+                pane: 'pane_NYBronx1938_11',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,213,92,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'D':
+                    return {
+                pane: 'pane_NYBronx1938_11',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'E':
+                    return {
+                pane: 'pane_NYBronx1938_11',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_NYBronx1938_11',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(169,58,216,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_NYBronx1938_11');
+        map.getPane('pane_NYBronx1938_11').style.zIndex = 411;
+        map.getPane('pane_NYBronx1938_11').style['mix-blend-mode'] = 'normal';
+        var layer_NYBronx1938_11 = new L.geoJson(json_NYBronx1938_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NYBronx1938_11',
+            layerName: 'layer_NYBronx1938_11',
+            pane: 'pane_NYBronx1938_11',
+            onEachFeature: pop_NYBronx1938_11,
+            style: style_NYBronx1938_11_0,
+        });
+        bounds_group.addLayer(layer_NYBronx1938_11);
+        map.addLayer(layer_NYBronx1938_11);
+        function pop_SubwayLines_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
@@ -338,11 +866,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_SubwayLines_8_0(feature) {
+        function style_SubwayLines_12_0(feature) {
             switch(String(feature.properties['name'])) {
                 case '1':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -355,7 +883,7 @@
                     break;
                 case '1-2-3':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -368,7 +896,7 @@
                     break;
                 case '2':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -381,7 +909,7 @@
                     break;
                 case '2-3':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -394,7 +922,7 @@
                     break;
                 case '3':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -407,7 +935,7 @@
                     break;
                 case '4':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(51,160,44,1.0)',
                 dashArray: '',
@@ -420,7 +948,7 @@
                     break;
                 case '4-5':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(51,160,44,1.0)',
                 dashArray: '',
@@ -433,7 +961,7 @@
                     break;
                 case '4-5-6':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(51,160,44,1.0)',
                 dashArray: '',
@@ -446,7 +974,7 @@
                     break;
                 case '5':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(51,160,44,1.0)',
                 dashArray: '',
@@ -459,7 +987,7 @@
                     break;
                 case '6':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(51,160,44,1.0)',
                 dashArray: '',
@@ -472,7 +1000,7 @@
                     break;
                 case '7':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(160,90,136,1.0)',
                 dashArray: '',
@@ -485,7 +1013,7 @@
                     break;
                 case 'A':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(0,82,162,1.0)',
                 dashArray: '',
@@ -498,7 +1026,7 @@
                     break;
                 case 'A-C':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(0,82,162,1.0)',
                 dashArray: '',
@@ -511,7 +1039,7 @@
                     break;
                 case 'A-C-E':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(0,82,162,1.0)',
                 dashArray: '',
@@ -524,7 +1052,7 @@
                     break;
                 case 'B':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(255,127,0,1.0)',
                 dashArray: '',
@@ -537,7 +1065,7 @@
                     break;
                 case 'B-D':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(255,127,0,1.0)',
                 dashArray: '',
@@ -550,7 +1078,7 @@
                     break;
                 case 'B-D-F-M':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(255,127,0,1.0)',
                 dashArray: '',
@@ -563,7 +1091,7 @@
                     break;
                 case 'D':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(255,127,0,1.0)',
                 dashArray: '',
@@ -576,7 +1104,7 @@
                     break;
                 case 'E':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(0,82,162,1.0)',
                 dashArray: '',
@@ -589,7 +1117,7 @@
                     break;
                 case 'F':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(255,127,0,1.0)',
                 dashArray: '',
@@ -602,7 +1130,7 @@
                     break;
                 case 'F-M':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(255,127,0,1.0)',
                 dashArray: '',
@@ -615,7 +1143,7 @@
                     break;
                 case 'G':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(178,223,138,1.0)',
                 dashArray: '',
@@ -628,7 +1156,7 @@
                     break;
                 case 'J-Z':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -641,7 +1169,7 @@
                     break;
                 case 'L':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -654,7 +1182,7 @@
                     break;
                 case 'M':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(151,55,2,1.0)',
                 dashArray: '',
@@ -667,7 +1195,7 @@
                     break;
                 case 'N':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -680,7 +1208,7 @@
                     break;
                 case 'N-Q':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -693,7 +1221,7 @@
                     break;
                 case 'N-Q-R':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -706,7 +1234,7 @@
                     break;
                 case 'N-Q-R-W':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -719,7 +1247,7 @@
                     break;
                 case 'N-R':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -732,7 +1260,7 @@
                     break;
                 case 'N-R-W':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -745,7 +1273,7 @@
                     break;
                 case 'N-W':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -758,7 +1286,7 @@
                     break;
                 case 'Q':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -771,7 +1299,7 @@
                     break;
                 case 'R':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -784,7 +1312,7 @@
                     break;
                 case 'R-W':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(226,186,63,1.0)',
                 dashArray: '',
@@ -797,7 +1325,7 @@
                     break;
                 case 'S':
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -810,7 +1338,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_SubwayLines_8',
+                pane: 'pane_SubwayLines_12',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -823,21 +1351,21 @@
                     break;
             }
         }
-        map.createPane('pane_SubwayLines_8');
-        map.getPane('pane_SubwayLines_8').style.zIndex = 408;
-        map.getPane('pane_SubwayLines_8').style['mix-blend-mode'] = 'normal';
-        var layer_SubwayLines_8 = new L.geoJson(json_SubwayLines_8, {
+        map.createPane('pane_SubwayLines_12');
+        map.getPane('pane_SubwayLines_12').style.zIndex = 412;
+        map.getPane('pane_SubwayLines_12').style['mix-blend-mode'] = 'normal';
+        var layer_SubwayLines_12 = new L.geoJson(json_SubwayLines_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SubwayLines_8',
-            layerName: 'layer_SubwayLines_8',
-            pane: 'pane_SubwayLines_8',
-            onEachFeature: pop_SubwayLines_8,
-            style: style_SubwayLines_8_0,
+            dataVar: 'json_SubwayLines_12',
+            layerName: 'layer_SubwayLines_12',
+            pane: 'pane_SubwayLines_12',
+            onEachFeature: pop_SubwayLines_12,
+            style: style_SubwayLines_12_0,
         });
-        bounds_group.addLayer(layer_SubwayLines_8);
-        map.addLayer(layer_SubwayLines_8);
-        function pop_UrbanFarming_9(feature, layer) {
+        bounds_group.addLayer(layer_SubwayLines_12);
+        map.addLayer(layer_SubwayLines_12);
+        function pop_UrbanFarming_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
@@ -855,9 +1383,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_UrbanFarming_9_0() {
+        function style_UrbanFarming_13_0() {
             return {
-                pane: 'pane_UrbanFarming_9',
+                pane: 'pane_UrbanFarming_13',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -871,26 +1399,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_UrbanFarming_9');
-        map.getPane('pane_UrbanFarming_9').style.zIndex = 409;
-        map.getPane('pane_UrbanFarming_9').style['mix-blend-mode'] = 'normal';
-        var layer_UrbanFarming_9 = new L.geoJson(json_UrbanFarming_9, {
+        map.createPane('pane_UrbanFarming_13');
+        map.getPane('pane_UrbanFarming_13').style.zIndex = 413;
+        map.getPane('pane_UrbanFarming_13').style['mix-blend-mode'] = 'normal';
+        var layer_UrbanFarming_13 = new L.geoJson(json_UrbanFarming_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_UrbanFarming_9',
-            layerName: 'layer_UrbanFarming_9',
-            pane: 'pane_UrbanFarming_9',
-            onEachFeature: pop_UrbanFarming_9,
+            dataVar: 'json_UrbanFarming_13',
+            layerName: 'layer_UrbanFarming_13',
+            pane: 'pane_UrbanFarming_13',
+            onEachFeature: pop_UrbanFarming_13,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_UrbanFarming_9_0(feature));
+                return L.circleMarker(latlng, style_UrbanFarming_13_0(feature));
             },
         });
-        bounds_group.addLayer(layer_UrbanFarming_9);
-        function pop_Parenting_10(feature, layer) {
+        bounds_group.addLayer(layer_UrbanFarming_13);
+        map.addLayer(layer_UrbanFarming_13);
+        function pop_Parenting_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['program'] !== null ? autolinker.link(feature.properties['program'].toLocaleString()) : '') + '</td>\
@@ -920,9 +1449,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Parenting_10_0() {
+        function style_Parenting_14_0() {
             return {
-                pane: 'pane_Parenting_10',
+                pane: 'pane_Parenting_14',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -936,26 +1465,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Parenting_10');
-        map.getPane('pane_Parenting_10').style.zIndex = 410;
-        map.getPane('pane_Parenting_10').style['mix-blend-mode'] = 'normal';
-        var layer_Parenting_10 = new L.geoJson(json_Parenting_10, {
+        map.createPane('pane_Parenting_14');
+        map.getPane('pane_Parenting_14').style.zIndex = 414;
+        map.getPane('pane_Parenting_14').style['mix-blend-mode'] = 'normal';
+        var layer_Parenting_14 = new L.geoJson(json_Parenting_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Parenting_10',
-            layerName: 'layer_Parenting_10',
-            pane: 'pane_Parenting_10',
-            onEachFeature: pop_Parenting_10,
+            dataVar: 'json_Parenting_14',
+            layerName: 'layer_Parenting_14',
+            pane: 'pane_Parenting_14',
+            onEachFeature: pop_Parenting_14,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Parenting_10_0(feature));
+                return L.circleMarker(latlng, style_Parenting_14_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Parenting_10);
-        function pop_NutritionandHealth_11(feature, layer) {
+        bounds_group.addLayer(layer_Parenting_14);
+        map.addLayer(layer_Parenting_14);
+        function pop_NutritionandHealth_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
@@ -976,9 +1506,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_NutritionandHealth_11_0() {
+        function style_NutritionandHealth_15_0() {
             return {
-                pane: 'pane_NutritionandHealth_11',
+                pane: 'pane_NutritionandHealth_15',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -992,26 +1522,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_NutritionandHealth_11');
-        map.getPane('pane_NutritionandHealth_11').style.zIndex = 411;
-        map.getPane('pane_NutritionandHealth_11').style['mix-blend-mode'] = 'normal';
-        var layer_NutritionandHealth_11 = new L.geoJson(json_NutritionandHealth_11, {
+        map.createPane('pane_NutritionandHealth_15');
+        map.getPane('pane_NutritionandHealth_15').style.zIndex = 415;
+        map.getPane('pane_NutritionandHealth_15').style['mix-blend-mode'] = 'normal';
+        var layer_NutritionandHealth_15 = new L.geoJson(json_NutritionandHealth_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_NutritionandHealth_11',
-            layerName: 'layer_NutritionandHealth_11',
-            pane: 'pane_NutritionandHealth_11',
-            onEachFeature: pop_NutritionandHealth_11,
+            dataVar: 'json_NutritionandHealth_15',
+            layerName: 'layer_NutritionandHealth_15',
+            pane: 'pane_NutritionandHealth_15',
+            onEachFeature: pop_NutritionandHealth_15,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_NutritionandHealth_11_0(feature));
+                return L.circleMarker(latlng, style_NutritionandHealth_15_0(feature));
             },
         });
-        bounds_group.addLayer(layer_NutritionandHealth_11);
-        function pop_HASTEP_12(feature, layer) {
+        bounds_group.addLayer(layer_NutritionandHealth_15);
+        map.addLayer(layer_NutritionandHealth_15);
+        function pop_HASTEP_16(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
@@ -1029,9 +1560,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_HASTEP_12_0() {
+        function style_HASTEP_16_0() {
             return {
-                pane: 'pane_HASTEP_12',
+                pane: 'pane_HASTEP_16',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1045,27 +1576,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_HASTEP_12');
-        map.getPane('pane_HASTEP_12').style.zIndex = 412;
-        map.getPane('pane_HASTEP_12').style['mix-blend-mode'] = 'normal';
-        var layer_HASTEP_12 = new L.geoJson(json_HASTEP_12, {
+        map.createPane('pane_HASTEP_16');
+        map.getPane('pane_HASTEP_16').style.zIndex = 416;
+        map.getPane('pane_HASTEP_16').style['mix-blend-mode'] = 'normal';
+        var layer_HASTEP_16 = new L.geoJson(json_HASTEP_16, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_HASTEP_12',
-            layerName: 'layer_HASTEP_12',
-            pane: 'pane_HASTEP_12',
-            onEachFeature: pop_HASTEP_12,
+            dataVar: 'json_HASTEP_16',
+            layerName: 'layer_HASTEP_16',
+            pane: 'pane_HASTEP_16',
+            onEachFeature: pop_HASTEP_16,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_HASTEP_12_0(feature));
+                return L.circleMarker(latlng, style_HASTEP_16_0(feature));
             },
         });
-        bounds_group.addLayer(layer_HASTEP_12);
-
-        function pop_FMNP_13(feature, layer) {
+        bounds_group.addLayer(layer_HASTEP_16);
+        map.addLayer(layer_HASTEP_16);
+        function pop_FMNP_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
@@ -1083,9 +1614,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_FMNP_13_0() {
+        function style_FMNP_17_0() {
             return {
-                pane: 'pane_FMNP_13',
+                pane: 'pane_FMNP_17',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1099,26 +1630,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_FMNP_13');
-        map.getPane('pane_FMNP_13').style.zIndex = 413;
-        map.getPane('pane_FMNP_13').style['mix-blend-mode'] = 'normal';
-        var layer_FMNP_13 = new L.geoJson(json_FMNP_13, {
+        map.createPane('pane_FMNP_17');
+        map.getPane('pane_FMNP_17').style.zIndex = 417;
+        map.getPane('pane_FMNP_17').style['mix-blend-mode'] = 'normal';
+        var layer_FMNP_17 = new L.geoJson(json_FMNP_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FMNP_13',
-            layerName: 'layer_FMNP_13',
-            pane: 'pane_FMNP_13',
-            onEachFeature: pop_FMNP_13,
+            dataVar: 'json_FMNP_17',
+            layerName: 'layer_FMNP_17',
+            pane: 'pane_FMNP_17',
+            onEachFeature: pop_FMNP_17,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_FMNP_13_0(feature));
+                return L.circleMarker(latlng, style_FMNP_17_0(feature));
             },
         });
-        bounds_group.addLayer(layer_FMNP_13);
-        function pop_4HandFYD_14(feature, layer) {
+        bounds_group.addLayer(layer_FMNP_17);
+        map.addLayer(layer_FMNP_17);
+        function pop_4HandFYD_18(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
@@ -1139,9 +1671,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_4HandFYD_14_0() {
+        function style_4HandFYD_18_0() {
             return {
-                pane: 'pane_4HandFYD_14',
+                pane: 'pane_4HandFYD_18',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1155,26 +1687,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_4HandFYD_14');
-        map.getPane('pane_4HandFYD_14').style.zIndex = 414;
-        map.getPane('pane_4HandFYD_14').style['mix-blend-mode'] = 'normal';
-        var layer_4HandFYD_14 = new L.geoJson(json_4HandFYD_14, {
+        map.createPane('pane_4HandFYD_18');
+        map.getPane('pane_4HandFYD_18').style.zIndex = 418;
+        map.getPane('pane_4HandFYD_18').style['mix-blend-mode'] = 'normal';
+        var layer_4HandFYD_18 = new L.geoJson(json_4HandFYD_18, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_4HandFYD_14',
-            layerName: 'layer_4HandFYD_14',
-            pane: 'pane_4HandFYD_14',
-            onEachFeature: pop_4HandFYD_14,
+            dataVar: 'json_4HandFYD_18',
+            layerName: 'layer_4HandFYD_18',
+            pane: 'pane_4HandFYD_18',
+            onEachFeature: pop_4HandFYD_18,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_4HandFYD_14_0(feature));
+                return L.circleMarker(latlng, style_4HandFYD_18_0(feature));
             },
         });
-        bounds_group.addLayer(layer_4HandFYD_14);
-        function pop_CUCEsites_15(feature, layer) {
+        bounds_group.addLayer(layer_4HandFYD_18);
+        map.addLayer(layer_4HandFYD_18);
+        function pop_CUCEsites_19(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Site name'] !== null ? autolinker.link(feature.properties['Site name'].toLocaleString()) : '') + '</td>\
@@ -1192,9 +1725,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_CUCEsites_15_0() {
+        function style_CUCEsites_19_0() {
             return {
-                pane: 'pane_CUCEsites_15',
+                pane: 'pane_CUCEsites_19',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(50,87,128,1.0)',
@@ -1208,28 +1741,28 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_CUCEsites_15');
-        map.getPane('pane_CUCEsites_15').style.zIndex = 415;
-        map.getPane('pane_CUCEsites_15').style['mix-blend-mode'] = 'normal';
-        var layer_CUCEsites_15 = new L.geoJson(json_CUCEsites_15, {
+        map.createPane('pane_CUCEsites_19');
+        map.getPane('pane_CUCEsites_19').style.zIndex = 419;
+        map.getPane('pane_CUCEsites_19').style['mix-blend-mode'] = 'normal';
+        var layer_CUCEsites_19 = new L.geoJson(json_CUCEsites_19, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CUCEsites_15',
-            layerName: 'layer_CUCEsites_15',
-            pane: 'pane_CUCEsites_15',
-            onEachFeature: pop_CUCEsites_15,
+            dataVar: 'json_CUCEsites_19',
+            layerName: 'layer_CUCEsites_19',
+            pane: 'pane_CUCEsites_19',
+            onEachFeature: pop_CUCEsites_19,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_CUCEsites_15_0(feature));
+                return L.circleMarker(latlng, style_CUCEsites_19_0(feature));
             },
         });
-        bounds_group.addLayer(layer_CUCEsites_15);
-        map.addLayer(layer_CUCEsites_15);
+        bounds_group.addLayer(layer_CUCEsites_19);
+        map.addLayer(layer_CUCEsites_19);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/CUCEsites_15.png" /> CUCE sites': layer_CUCEsites_15,'<img src="legend/4HandFYD_14.png" /> 4H and FYD': layer_4HandFYD_14,'<img src="legend/FMNP_13.png" /> FMNP': layer_FMNP_13,'<img src="legend/HASTEP_12.png" /> HASTEP': layer_HASTEP_12,'<img src="legend/NutritionandHealth_11.png" /> Nutrition and Health': layer_NutritionandHealth_11,'<img src="legend/Parenting_10.png" /> Parenting': layer_Parenting_10,'<img src="legend/UrbanFarming_9.png" /> Urban Farming': layer_UrbanFarming_9,'Subway Lines<br /><table><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_1231.png" /></td><td>1-2-3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_22.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_233.png" /></td><td>2-3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_34.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_45.png" /></td><td>4</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_456.png" /></td><td>4-5</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_4567.png" /></td><td>4-5-6</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_58.png" /></td><td>5</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_69.png" /></td><td>6</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_710.png" /></td><td>7</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_A11.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_AC12.png" /></td><td>A-C</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_ACE13.png" /></td><td>A-C-E</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_B14.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_BD15.png" /></td><td>B-D</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_BDFM16.png" /></td><td>B-D-F-M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_D17.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_E18.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_F19.png" /></td><td>F</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_FM20.png" /></td><td>F-M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_G21.png" /></td><td>G</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_JZ22.png" /></td><td>J-Z</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_L23.png" /></td><td>L</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_M24.png" /></td><td>M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_N25.png" /></td><td>N</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQ26.png" /></td><td>N-Q</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQR27.png" /></td><td>N-Q-R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQRW28.png" /></td><td>N-Q-R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NR29.png" /></td><td>N-R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NRW30.png" /></td><td>N-R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NW31.png" /></td><td>N-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_Q32.png" /></td><td>Q</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_R33.png" /></td><td>R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_RW34.png" /></td><td>R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_S35.png" /></td><td>S</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_36.png" /></td><td></td></tr></table>': layer_SubwayLines_8,'<img src="legend/HOLCredlining_7.png" /> HOLC redlining': layer_HOLCredlining_7,'<img src="legend/Boroughs_6.png" /> Boroughs': layer_Boroughs_6,'<img src="legend/CityCouncilDistrics_5.png" /> City Council Districs': layer_CityCouncilDistrics_5,'<img src="legend/CommunityDistricts_4.png" /> Community Districts': layer_CommunityDistricts_4,'<img src="legend/CongressionalDistricts_3.png" /> Congressional Districts': layer_CongressionalDistricts_3,'<img src="legend/StateAssemblyDistricts_2.png" /> State Assembly Districts': layer_StateAssemblyDistricts_2,'<img src="legend/StateSenateDistricts_1.png" /> State Senate Districts': layer_StateSenateDistricts_1,"CartoDb Positron": layer_CartoDbPositron_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/CUCEsites_19.png" /> CUCE sites': layer_CUCEsites_19,'<img src="legend/4HandFYD_18.png" /> 4H and FYD': layer_4HandFYD_18,'<img src="legend/FMNP_17.png" /> FMNP': layer_FMNP_17,'<img src="legend/HASTEP_16.png" /> HASTEP': layer_HASTEP_16,'<img src="legend/NutritionandHealth_15.png" /> Nutrition and Health': layer_NutritionandHealth_15,'<img src="legend/Parenting_14.png" /> Parenting': layer_Parenting_14,'<img src="legend/UrbanFarming_13.png" /> Urban Farming': layer_UrbanFarming_13,'Subway Lines<br /><table><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_1231.png" /></td><td>1-2-3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_22.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_233.png" /></td><td>2-3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_34.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_45.png" /></td><td>4</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_456.png" /></td><td>4-5</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_4567.png" /></td><td>4-5-6</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_58.png" /></td><td>5</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_69.png" /></td><td>6</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_710.png" /></td><td>7</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_A11.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_AC12.png" /></td><td>A-C</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_ACE13.png" /></td><td>A-C-E</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_B14.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_BD15.png" /></td><td>B-D</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_BDFM16.png" /></td><td>B-D-F-M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_D17.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_E18.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_F19.png" /></td><td>F</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_FM20.png" /></td><td>F-M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_G21.png" /></td><td>G</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_JZ22.png" /></td><td>J-Z</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_L23.png" /></td><td>L</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_M24.png" /></td><td>M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_N25.png" /></td><td>N</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_NQ26.png" /></td><td>N-Q</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_NQR27.png" /></td><td>N-Q-R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_NQRW28.png" /></td><td>N-Q-R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_NR29.png" /></td><td>N-R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_NRW30.png" /></td><td>N-R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_NW31.png" /></td><td>N-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_Q32.png" /></td><td>Q</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_R33.png" /></td><td>R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_RW34.png" /></td><td>R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_S35.png" /></td><td>S</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_12_36.png" /></td><td></td></tr></table>': layer_SubwayLines_12,'NYBronx1938<br /><table><tr><td style="text-align: center;"><img src="legend/NYBronx1938_11_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/NYBronx1938_11_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/NYBronx1938_11_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/NYBronx1938_11_D3.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/NYBronx1938_11_E4.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/NYBronx1938_11_5.png" /></td><td></td></tr></table>': layer_NYBronx1938_11,'NYBrooklyn1938<br /><table><tr><td style="text-align: center;"><img src="legend/NYBrooklyn1938_10_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/NYBrooklyn1938_10_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/NYBrooklyn1938_10_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/NYBrooklyn1938_10_D3.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/NYBrooklyn1938_10_4.png" /></td><td></td></tr></table>': layer_NYBrooklyn1938_10,'NYManhattan1937<br /><table><tr><td style="text-align: center;"><img src="legend/NYManhattan1937_9_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/NYManhattan1937_9_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/NYManhattan1937_9_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/NYManhattan1937_9_D3.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/NYManhattan1937_9_4.png" /></td><td></td></tr></table>': layer_NYManhattan1937_9,'NYQueens1938<br /><table><tr><td style="text-align: center;"><img src="legend/NYQueens1938_8_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/NYQueens1938_8_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/NYQueens1938_8_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/NYQueens1938_8_D3.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/NYQueens1938_8_4.png" /></td><td></td></tr></table>': layer_NYQueens1938_8,'NYStatenIsland1940<br /><table><tr><td style="text-align: center;"><img src="legend/NYStatenIsland1940_7_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/NYStatenIsland1940_7_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/NYStatenIsland1940_7_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/NYStatenIsland1940_7_D3.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/NYStatenIsland1940_7_4.png" /></td><td></td></tr></table>': layer_NYStatenIsland1940_7,'<img src="legend/Boroughs_6.png" /> Boroughs': layer_Boroughs_6,'<img src="legend/CityCouncilDistrics_5.png" /> City Council Districs': layer_CityCouncilDistrics_5,'<img src="legend/CommunityDistricts_4.png" /> Community Districts': layer_CommunityDistricts_4,'<img src="legend/CongressionalDistricts_3.png" /> Congressional Districts': layer_CongressionalDistricts_3,'<img src="legend/StateAssemblyDistricts_2.png" /> State Assembly Districts': layer_StateAssemblyDistricts_2,'<img src="legend/StateSenateDistricts_1.png" /> State Senate Districts': layer_StateSenateDistricts_1,"CartoDb Positron": layer_CartoDbPositron_0,}).addTo(map);
         setBounds();
         </script>
     </body>
