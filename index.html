@@ -47,14 +47,9 @@
         <script src="data/CUCEsites_15.js"></script>
         <script src="data/CUCEOffices_16.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-            highlightLayer.openPopup();
-        }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[40.69317935261687,-74.03652145648695],[40.78055108993439,-73.82883560182132]]);
+        }).fitBounds([[40.69240743687777,-74.10253512339833],[40.86703816248463,-73.68716341406633]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -76,18 +71,6 @@
         layer_CartoDbPositron_0;
         map.addLayer(layer_CartoDbPositron_0);
         function pop_StateSenateDistricts_1(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Senate District:'] !== null ? autolinker.link(feature.properties['Senate District:'].toLocaleString()) : '') + '</td>\
@@ -124,18 +107,6 @@
         bounds_group.addLayer(layer_StateSenateDistricts_1);
         map.addLayer(layer_StateSenateDistricts_1);
         function pop_StateAssemblyDistricts_2(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['State Assembly District'] !== null ? autolinker.link(feature.properties['State Assembly District'].toLocaleString()) : '') + '</td>\
@@ -172,18 +143,6 @@
         bounds_group.addLayer(layer_StateAssemblyDistricts_2);
         map.addLayer(layer_StateAssemblyDistricts_2);
         function pop_CongressionalDistricts_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Congressional District'] !== null ? autolinker.link(feature.properties['Congressional District'].toLocaleString()) : '') + '</td>\
@@ -220,18 +179,6 @@
         bounds_group.addLayer(layer_CongressionalDistricts_3);
         map.addLayer(layer_CongressionalDistricts_3);
         function pop_CommunityDistricts_4(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Community District:'] !== null ? autolinker.link(feature.properties['Community District:'].toLocaleString()) : '') + '</td>\
@@ -268,18 +215,6 @@
         bounds_group.addLayer(layer_CommunityDistricts_4);
         map.addLayer(layer_CommunityDistricts_4);
         function pop_CityCouncilDistrics_5(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['City Council District:'] !== null ? autolinker.link(feature.properties['City Council District:'].toLocaleString()) : '') + '</td>\
@@ -316,18 +251,6 @@
         bounds_group.addLayer(layer_CityCouncilDistrics_5);
         map.addLayer(layer_CityCouncilDistrics_5);
         function pop_Boroughs_6(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
@@ -364,18 +287,6 @@
         bounds_group.addLayer(layer_Boroughs_6);
         map.addLayer(layer_Boroughs_6);
         function pop_HOLCRedlining_7(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
@@ -388,9 +299,6 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(feature.properties['layer'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['path'] !== null ? autolinker.link(feature.properties['path'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -505,18 +413,6 @@
         bounds_group.addLayer(layer_HOLCRedlining_7);
         map.addLayer(layer_HOLCRedlining_7);
         function pop_SubwayLines_8(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
@@ -525,489 +421,17 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_SubwayLines_8_0(feature) {
-            switch(String(feature.properties['name'])) {
-                case '1':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '1-2-3':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '2':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '2-3':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '3':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '4':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(51,160,44,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '4-5':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(51,160,44,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '4-5-6':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(51,160,44,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '5':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(51,160,44,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '6':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(51,160,44,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case '7':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(160,90,136,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'A':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(0,82,162,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'A-C':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(0,82,162,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'A-C-E':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(0,82,162,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'B':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(255,127,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'B-D':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(255,127,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'B-D-F-M':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(255,127,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'D':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(255,127,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'E':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(0,82,162,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'F':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(255,127,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'F-M':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(255,127,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'G':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(178,223,138,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'J-Z':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'L':
-                    return {
+        function style_SubwayLines_8_0() {
+            return {
                 pane: 'pane_SubwayLines_8',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
+                lineCap: 'round',
+                lineJoin: 'round',
                 weight: 1.0,
                 fillOpacity: 0,
                 interactive: true,
-            }
-                    break;
-                case 'M':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(151,55,2,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'N':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'N-Q':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'N-Q-R':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'N-Q-R-W':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'N-R':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'N-R-W':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'N-W':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'Q':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'R':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'R-W':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(226,186,63,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'S':
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_SubwayLines_8',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_SubwayLines_8');
@@ -1025,18 +449,6 @@
         bounds_group.addLayer(layer_SubwayLines_8);
         map.addLayer(layer_SubwayLines_8);
         function pop_UrbanFarming_9(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['activity'] !== null ? autolinker.link(feature.properties['activity'].toLocaleString()) : '') + '</td>\
@@ -1091,18 +503,6 @@
         bounds_group.addLayer(layer_UrbanFarming_9);
         map.addLayer(layer_UrbanFarming_9);
         function pop_Parenting_10(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['program'] !== null ? autolinker.link(feature.properties['program'].toLocaleString()) : '') + '</td>\
@@ -1169,18 +569,6 @@
         bounds_group.addLayer(layer_Parenting_10);
         map.addLayer(layer_Parenting_10);
         function pop_NutritionandHealth_11(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
@@ -1238,18 +626,6 @@
         bounds_group.addLayer(layer_NutritionandHealth_11);
         map.addLayer(layer_NutritionandHealth_11);
         function pop_HASTEP_12(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
@@ -1304,18 +680,6 @@
         bounds_group.addLayer(layer_HASTEP_12);
         map.addLayer(layer_HASTEP_12);
         function pop_FMNP_13(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
@@ -1370,18 +734,6 @@
         bounds_group.addLayer(layer_FMNP_13);
         map.addLayer(layer_FMNP_13);
         function pop_4HandFYD_14(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['project'] !== null ? autolinker.link(feature.properties['project'].toLocaleString()) : '') + '</td>\
@@ -1439,18 +791,6 @@
         bounds_group.addLayer(layer_4HandFYD_14);
         map.addLayer(layer_4HandFYD_14);
         function pop_CUCEsites_15(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Site name'] !== null ? autolinker.link(feature.properties['Site name'].toLocaleString()) : '') + '</td>\
@@ -1505,18 +845,6 @@
         bounds_group.addLayer(layer_CUCEsites_15);
         map.addLayer(layer_CUCEsites_15);
         function pop_CUCEOffices_16(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['office'] !== null ? autolinker.link(feature.properties['office'].toLocaleString()) : '') + '</td>\
@@ -1593,7 +921,7 @@
         bounds_group.addLayer(layer_CUCEOffices_16);
         map.addLayer(layer_CUCEOffices_16);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/CUCEOffices_16.png" /> CUCE Offices': layer_CUCEOffices_16,'<img src="legend/CUCEsites_15.png" /> CUCE sites': layer_CUCEsites_15,'<img src="legend/4HandFYD_14.png" /> 4H and FYD': layer_4HandFYD_14,'<img src="legend/FMNP_13.png" /> FMNP': layer_FMNP_13,'<img src="legend/HASTEP_12.png" /> HASTEP': layer_HASTEP_12,'<img src="legend/NutritionandHealth_11.png" /> Nutrition and Health': layer_NutritionandHealth_11,'<img src="legend/Parenting_10.png" /> Parenting': layer_Parenting_10,'<img src="legend/UrbanFarming_9.png" /> Urban Farming': layer_UrbanFarming_9,'Subway Lines<br /><table><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_1231.png" /></td><td>1-2-3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_22.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_233.png" /></td><td>2-3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_34.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_45.png" /></td><td>4</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_456.png" /></td><td>4-5</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_4567.png" /></td><td>4-5-6</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_58.png" /></td><td>5</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_69.png" /></td><td>6</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_710.png" /></td><td>7</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_A11.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_AC12.png" /></td><td>A-C</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_ACE13.png" /></td><td>A-C-E</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_B14.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_BD15.png" /></td><td>B-D</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_BDFM16.png" /></td><td>B-D-F-M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_D17.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_E18.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_F19.png" /></td><td>F</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_FM20.png" /></td><td>F-M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_G21.png" /></td><td>G</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_JZ22.png" /></td><td>J-Z</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_L23.png" /></td><td>L</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_M24.png" /></td><td>M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_N25.png" /></td><td>N</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQ26.png" /></td><td>N-Q</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQR27.png" /></td><td>N-Q-R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQRW28.png" /></td><td>N-Q-R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NR29.png" /></td><td>N-R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NRW30.png" /></td><td>N-R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NW31.png" /></td><td>N-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_Q32.png" /></td><td>Q</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_R33.png" /></td><td>R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_RW34.png" /></td><td>R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_S35.png" /></td><td>S</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_36.png" /></td><td></td></tr></table>': layer_SubwayLines_8,'HOLC Redlining<br /><table><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_D3.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_E4.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_5.png" /></td><td></td></tr></table>': layer_HOLCRedlining_7,'<img src="legend/Boroughs_6.png" /> Boroughs': layer_Boroughs_6,'<img src="legend/CityCouncilDistrics_5.png" /> City Council Districs': layer_CityCouncilDistrics_5,'<img src="legend/CommunityDistricts_4.png" /> Community Districts': layer_CommunityDistricts_4,'<img src="legend/CongressionalDistricts_3.png" /> Congressional Districts': layer_CongressionalDistricts_3,'<img src="legend/StateAssemblyDistricts_2.png" /> State Assembly Districts': layer_StateAssemblyDistricts_2,'<img src="legend/StateSenateDistricts_1.png" /> State Senate Districts': layer_StateSenateDistricts_1,"CartoDb Positron": layer_CartoDbPositron_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/CUCEOffices_16.png" /> CUCE Offices': layer_CUCEOffices_16,'<img src="legend/CUCEsites_15.png" /> CUCE sites': layer_CUCEsites_15,'<img src="legend/4HandFYD_14.png" /> 4H and FYD': layer_4HandFYD_14,'<img src="legend/FMNP_13.png" /> FMNP': layer_FMNP_13,'<img src="legend/HASTEP_12.png" /> HASTEP': layer_HASTEP_12,'<img src="legend/NutritionandHealth_11.png" /> Nutrition and Health': layer_NutritionandHealth_11,'<img src="legend/Parenting_10.png" /> Parenting': layer_Parenting_10,'<img src="legend/UrbanFarming_9.png" /> Urban Farming': layer_UrbanFarming_9,'<img src="legend/SubwayLines_8.png" /> Subway Lines': layer_SubwayLines_8,'HOLC Redlining<br /><table><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_D3.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_E4.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_5.png" /></td><td></td></tr></table>': layer_HOLCRedlining_7,'<img src="legend/Boroughs_6.png" /> Boroughs': layer_Boroughs_6,'<img src="legend/CityCouncilDistrics_5.png" /> City Council Districs': layer_CityCouncilDistrics_5,'<img src="legend/CommunityDistricts_4.png" /> Community Districts': layer_CommunityDistricts_4,'<img src="legend/CongressionalDistricts_3.png" /> Congressional Districts': layer_CongressionalDistricts_3,'<img src="legend/StateAssemblyDistricts_2.png" /> State Assembly Districts': layer_StateAssemblyDistricts_2,'<img src="legend/StateSenateDistricts_1.png" /> State Senate Districts': layer_StateSenateDistricts_1,"CartoDb Positron": layer_CartoDbPositron_0,}).addTo(map);
         setBounds();
         </script>
     </body>
