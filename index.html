@@ -6,7 +6,7 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
         #map {
@@ -20,7 +20,7 @@
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -46,10 +46,11 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[40.69704766857888,-74.0382794032559],[40.76418274371971,-73.82549441454258]]);
+        }).fitBounds([[40.66667826606326,-74.09775020778466],[40.800941912064594,-73.6721802303584]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
@@ -101,6 +102,7 @@
             style: style_StateSenateDistricts_1_0,
         });
         bounds_group.addLayer(layer_StateSenateDistricts_1);
+
         function pop_StateAssemblyDistricts_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -308,7 +310,7 @@
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 1.0,
+                weight: 2.0,
                 fillOpacity: 0,
                 interactive: true,
             }
@@ -1062,6 +1064,7 @@
             },
         });
         bounds_group.addLayer(layer_HASTEP_12);
+
         function pop_FMNP_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -1225,6 +1228,8 @@
         });
         bounds_group.addLayer(layer_CUCEsites_15);
         map.addLayer(layer_CUCEsites_15);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/CUCEsites_15.png" /> CUCE sites': layer_CUCEsites_15,'<img src="legend/4HandFYD_14.png" /> 4H and FYD': layer_4HandFYD_14,'<img src="legend/FMNP_13.png" /> FMNP': layer_FMNP_13,'<img src="legend/HASTEP_12.png" /> HASTEP': layer_HASTEP_12,'<img src="legend/NutritionandHealth_11.png" /> Nutrition and Health': layer_NutritionandHealth_11,'<img src="legend/Parenting_10.png" /> Parenting': layer_Parenting_10,'<img src="legend/UrbanFarming_9.png" /> Urban Farming': layer_UrbanFarming_9,'Subway Lines<br /><table><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_1231.png" /></td><td>1-2-3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_22.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_233.png" /></td><td>2-3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_34.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_45.png" /></td><td>4</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_456.png" /></td><td>4-5</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_4567.png" /></td><td>4-5-6</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_58.png" /></td><td>5</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_69.png" /></td><td>6</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_710.png" /></td><td>7</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_A11.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_AC12.png" /></td><td>A-C</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_ACE13.png" /></td><td>A-C-E</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_B14.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_BD15.png" /></td><td>B-D</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_BDFM16.png" /></td><td>B-D-F-M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_D17.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_E18.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_F19.png" /></td><td>F</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_FM20.png" /></td><td>F-M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_G21.png" /></td><td>G</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_JZ22.png" /></td><td>J-Z</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_L23.png" /></td><td>L</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_M24.png" /></td><td>M</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_N25.png" /></td><td>N</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQ26.png" /></td><td>N-Q</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQR27.png" /></td><td>N-Q-R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NQRW28.png" /></td><td>N-Q-R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NR29.png" /></td><td>N-R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NRW30.png" /></td><td>N-R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_NW31.png" /></td><td>N-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_Q32.png" /></td><td>Q</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_R33.png" /></td><td>R</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_RW34.png" /></td><td>R-W</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_S35.png" /></td><td>S</td></tr><tr><td style="text-align: center;"><img src="legend/SubwayLines_8_36.png" /></td><td></td></tr></table>': layer_SubwayLines_8,'<img src="legend/HOLCredlining_7.png" /> HOLC redlining': layer_HOLCredlining_7,'<img src="legend/Boroughs_6.png" /> Boroughs': layer_Boroughs_6,'<img src="legend/CityCouncilDistrics_5.png" /> City Council Districs': layer_CityCouncilDistrics_5,'<img src="legend/CommunityDistricts_4.png" /> Community Districts': layer_CommunityDistricts_4,'<img src="legend/CongressionalDistricts_3.png" /> Congressional Districts': layer_CongressionalDistricts_3,'<img src="legend/StateAssemblyDistricts_2.png" /> State Assembly Districts': layer_StateAssemblyDistricts_2,'<img src="legend/StateSenateDistricts_1.png" /> State Senate Districts': layer_StateSenateDistricts_1,"CartoDb Positron": layer_CartoDbPositron_0,}).addTo(map);
         setBounds();
         </script>
     </body>
