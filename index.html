@@ -21,8 +21,6 @@
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
-        <script src="js/multi-style-layer.js"></script>
-        <script src="js/leaflet-svg-shape-markers.min.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -49,7 +47,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[40.69240743687777,-74.10253512339833],[40.86703816248463,-73.68716341406633]]);
+        }).fitBounds([[40.68200887060513,-74.03351122727334],[40.74647455010965,-73.89352029345089]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -105,7 +103,6 @@
             style: style_StateSenateDistricts_1_0,
         });
         bounds_group.addLayer(layer_StateSenateDistricts_1);
-        map.addLayer(layer_StateSenateDistricts_1);
         function pop_StateAssemblyDistricts_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -141,7 +138,6 @@
             style: style_StateAssemblyDistricts_2_0,
         });
         bounds_group.addLayer(layer_StateAssemblyDistricts_2);
-        map.addLayer(layer_StateAssemblyDistricts_2);
         function pop_CongressionalDistricts_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -177,7 +173,6 @@
             style: style_CongressionalDistricts_3_0,
         });
         bounds_group.addLayer(layer_CongressionalDistricts_3);
-        map.addLayer(layer_CongressionalDistricts_3);
         function pop_CommunityDistricts_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -213,7 +208,6 @@
             style: style_CommunityDistricts_4_0,
         });
         bounds_group.addLayer(layer_CommunityDistricts_4);
-        map.addLayer(layer_CommunityDistricts_4);
         function pop_CityCouncilDistrics_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -249,7 +243,6 @@
             style: style_CityCouncilDistrics_5_0,
         });
         bounds_group.addLayer(layer_CityCouncilDistrics_5);
-        map.addLayer(layer_CityCouncilDistrics_5);
         function pop_Boroughs_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -285,7 +278,6 @@
             style: style_Boroughs_6_0,
         });
         bounds_group.addLayer(layer_Boroughs_6);
-        map.addLayer(layer_Boroughs_6);
         function pop_HOLCRedlining_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -314,7 +306,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(51,160,44,1.0)',
@@ -329,10 +321,10 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(246,213,92,1.0)',
+                fillColor: 'rgba(31,120,180,1.0)',
                 interactive: true,
             }
                     break;
@@ -344,10 +336,10 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
+                fillColor: 'rgba(226,186,63,1.0)',
                 interactive: true,
             }
                     break;
@@ -359,37 +351,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'E':
-                    return {
-                pane: 'pane_HOLCRedlining_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(227,26,28,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_HOLCRedlining_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(227,26,28,1.0)',
@@ -865,63 +827,41 @@
         function style_CUCEOffices_16_0() {
             return {
                 pane: 'pane_CUCEOffices_16',
-                radius: 13.2,
+                radius: 8.0,
                 opacity: 1,
-                color: 'rgba(184,8,8,1.0)',
+                color: 'rgba(128,17,25,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 2.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(184,8,8,1.0)',
-                interactive: true,
-            }
-        }
-        function style_CUCEOffices_16_1() {
-            return {
-                pane: 'pane_CUCEOffices_16',
-                radius: 14.4,
-                opacity: 1,
-                color: 'rgba(255,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,0,0,1.0)',
+                fillColor: 'rgba(219,30,42,1.0)',
                 interactive: true,
             }
         }
         map.createPane('pane_CUCEOffices_16');
         map.getPane('pane_CUCEOffices_16').style.zIndex = 416;
         map.getPane('pane_CUCEOffices_16').style['mix-blend-mode'] = 'normal';
-        var layer_CUCEOffices_16 = new L.geoJson.multiStyle(json_CUCEOffices_16, {
+        var layer_CUCEOffices_16 = new L.geoJson(json_CUCEOffices_16, {
             attribution: '',
             interactive: true,
             dataVar: 'json_CUCEOffices_16',
             layerName: 'layer_CUCEOffices_16',
             pane: 'pane_CUCEOffices_16',
             onEachFeature: pop_CUCEOffices_16,
-            pointToLayers: [function (feature, latlng) {
+            pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_CUCEOffices_16_0(feature));
-            },function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.shapeMarker(latlng, style_CUCEOffices_16_1(feature));
+                return L.circleMarker(latlng, style_CUCEOffices_16_0(feature));
             },
-        ]});
+        });
         bounds_group.addLayer(layer_CUCEOffices_16);
         map.addLayer(layer_CUCEOffices_16);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/CUCEOffices_16.png" /> CUCE Offices': layer_CUCEOffices_16,'<img src="legend/CUCEsites_15.png" /> CUCE sites': layer_CUCEsites_15,'<img src="legend/4HandFYD_14.png" /> 4H and FYD': layer_4HandFYD_14,'<img src="legend/FMNP_13.png" /> FMNP': layer_FMNP_13,'<img src="legend/HASTEP_12.png" /> HASTEP': layer_HASTEP_12,'<img src="legend/NutritionandHealth_11.png" /> Nutrition and Health': layer_NutritionandHealth_11,'<img src="legend/Parenting_10.png" /> Parenting': layer_Parenting_10,'<img src="legend/UrbanFarming_9.png" /> Urban Farming': layer_UrbanFarming_9,'<img src="legend/SubwayLines_8.png" /> Subway Lines': layer_SubwayLines_8,'HOLC Redlining<br /><table><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_D3.png" /></td><td>D</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_E4.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_5.png" /></td><td></td></tr></table>': layer_HOLCRedlining_7,'<img src="legend/Boroughs_6.png" /> Boroughs': layer_Boroughs_6,'<img src="legend/CityCouncilDistrics_5.png" /> City Council Districs': layer_CityCouncilDistrics_5,'<img src="legend/CommunityDistricts_4.png" /> Community Districts': layer_CommunityDistricts_4,'<img src="legend/CongressionalDistricts_3.png" /> Congressional Districts': layer_CongressionalDistricts_3,'<img src="legend/StateAssemblyDistricts_2.png" /> State Assembly Districts': layer_StateAssemblyDistricts_2,'<img src="legend/StateSenateDistricts_1.png" /> State Senate Districts': layer_StateSenateDistricts_1,"CartoDb Positron": layer_CartoDbPositron_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/CUCEOffices_16.png" /> CUCE Offices': layer_CUCEOffices_16,'<img src="legend/CUCEsites_15.png" /> CUCE sites': layer_CUCEsites_15,'<img src="legend/4HandFYD_14.png" /> 4H and FYD': layer_4HandFYD_14,'<img src="legend/FMNP_13.png" /> FMNP': layer_FMNP_13,'<img src="legend/HASTEP_12.png" /> HASTEP': layer_HASTEP_12,'<img src="legend/NutritionandHealth_11.png" /> Nutrition and Health': layer_NutritionandHealth_11,'<img src="legend/Parenting_10.png" /> Parenting': layer_Parenting_10,'<img src="legend/UrbanFarming_9.png" /> Urban Farming': layer_UrbanFarming_9,'<img src="legend/SubwayLines_8.png" /> Subway Lines': layer_SubwayLines_8,'HOLC Redlining<br /><table><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_A0.png" /></td><td>A</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_B1.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_C2.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/HOLCRedlining_7_D3.png" /></td><td>D</td></tr></table>': layer_HOLCRedlining_7,'<img src="legend/Boroughs_6.png" /> Boroughs': layer_Boroughs_6,'<img src="legend/CityCouncilDistrics_5.png" /> City Council Districs': layer_CityCouncilDistrics_5,'<img src="legend/CommunityDistricts_4.png" /> Community Districts': layer_CommunityDistricts_4,'<img src="legend/CongressionalDistricts_3.png" /> Congressional Districts': layer_CongressionalDistricts_3,'<img src="legend/StateAssemblyDistricts_2.png" /> State Assembly Districts': layer_StateAssemblyDistricts_2,'<img src="legend/StateSenateDistricts_1.png" /> State Senate Districts': layer_StateSenateDistricts_1,"CartoDb Positron": layer_CartoDbPositron_0,}).addTo(map);
         setBounds();
         </script>
     </body>
