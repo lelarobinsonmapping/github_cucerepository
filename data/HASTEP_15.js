@@ -1,6 +1,6 @@
-var json_HASTEP_12 = {
+var json_HASTEP_15 = {
 "type": "FeatureCollection",
-"name": "HASTEP_12",
+"name": "HASTEP_15",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "project": "HLM: Hydroponics Learning Model; GWTF: Grow With The Flow Program", "activity": "Workshop Series;", "sitename": "PAL: Police Athletic League", "address": "441 Manhattan Avenue" }, "geometry": { "type": "Point", "coordinates": [ -73.95605, 40.8070076 ] } },

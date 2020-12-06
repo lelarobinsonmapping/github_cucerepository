@@ -1,6 +1,6 @@
-var json_CUCEOffices_16 = {
+var json_CUCEOffices_19 = {
 "type": "FeatureCollection",
-"name": "CUCEOffices_16",
+"name": "CUCEOffices_19",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "office": "Manhattan Office", "address": "570 Lexington Ave, 12th floor, NYC NY", "Latitude": 40.7571519, "Longitude": -73.9726033 }, "geometry": { "type": "Point", "coordinates": [ -73.9726033, 40.7571519 ] } },
